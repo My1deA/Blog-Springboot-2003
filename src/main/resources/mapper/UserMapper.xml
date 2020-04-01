@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.demo.mapper.UserMapper">
+    <resultMap id="user" type="com.example.demo.domain.User">
+        <id  property="id" column="id"></id>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="salt" column="salt"></result>
+        <result property="info" column="info"></result>
+    </resultMap>
+
+<!--    User selectUserbyId(Integer id);-->
+    <select id="selectUserbyId" resultType="user" parameterType="java.lang.Integer" >
+        select * from user where id = #{id}
+    </select>
+
+
+<!--    void addUser(User user); -->
+    <insert id="addUser" parameterType="com.example.demo.domain.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username!=null">
+                username,
+            </if>
+            <if test="password!=null">
+                password,
+            </if>
+            <if test="salt!=null">
+                salt,
+            </if>
+            <if test="info!=null">
+                info,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="username!=null">
+                #{username},
+            </if>
+            <if test="password!=null">
+                #{password},
+            </if>
+            <if test="salt!=null">
+                #{salt},
+            </if>
+            <if test="info!=null">
+                #{info},
+            </if>
+        </trim>
+
+    </insert>
+<!--    void delUser(Integer id);-->
+
+
+<!--    User findUserbyId(Integer id);-->
+
+
+<!--    void saveUser(User user);-->
+
+</mapper>
+
+
