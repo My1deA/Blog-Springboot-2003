@@ -2,6 +2,8 @@ package com.example.demo;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.example.demo.domain.User;
+import com.example.demo.result.Result;
+import com.example.demo.result.ResultUtil;
 import com.example.demo.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,13 @@ class DemoApplicationTests {
     }
 
     @Test
+    void testResultEnum(){
+        Result result= ResultUtil.success(null);
+        System.out.println(result);
+    }
+
+///------------------------------------------------------///
+    @Test
     void testDelUser(){
         userService.delUser(2);
     }
@@ -45,6 +54,8 @@ class DemoApplicationTests {
         User user=userService.selectUserbyId(1);
         System.out.println(user);
     }
+
+
 
     @Test
     void contextLoads() {
