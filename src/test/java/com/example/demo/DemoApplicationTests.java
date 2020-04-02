@@ -14,17 +14,36 @@ class DemoApplicationTests {
     private UserService userService;
 
     @Test
-    void testMybatis(){
-        User user=userService.selectUserbyId(1);
-        System.out.println(user);
-    }
-
-    @Test
     void testAddUser(){
         User user=new User();
         user.setUsername("xiaomi");
         user.setPassword("123");
         userService.addUser(user);
+    }
+
+    @Test
+    void testFindUser(){
+        User user=userService.findUserbyId(2);
+        System.out.println(user);
+    }
+
+    @Test
+    void testSaveUser(){
+       User user=userService.findUserbyId(2);
+       user.setPassword("321");
+       userService.saveUser(user);
+    }
+
+    @Test
+    void testDelUser(){
+        userService.delUser(2);
+    }
+
+
+    @Test
+    void testMybatis(){
+        User user=userService.selectUserbyId(1);
+        System.out.println(user);
     }
 
     @Test

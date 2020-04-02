@@ -49,14 +49,37 @@
         </trim>
 
     </insert>
-<!--    void delUser(Integer id);-->
 
+<!--    void delUser(Integer id);-->
+    <delete id="delUser" parameterType="java.lang.Integer">
+        delete from user where id = #{id}
+    </delete>
 
 <!--    User findUserbyId(Integer id);-->
-
+    <select id="findUserbyId" resultType="com.example.demo.domain.User" parameterType="java.lang.Integer">
+        select * from user where id = #{id}
+    </select>
 
 <!--    void saveUser(User user);-->
+    <update id="saveUser" parameterType="com.example.demo.domain.User">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username!=null">
+                username = #{username},
+            </if>
+            <if test="password!=null">
+                password = #{password},
+            </if>
+            <if test="salt!=null">
+                salt = #{salt},
+            </if>
+            <if test="info!=null">
+                info = #{info},
+            </if>
+        </trim>
+        where id = #{id}
 
+    </update>
 </mapper>
 
 
