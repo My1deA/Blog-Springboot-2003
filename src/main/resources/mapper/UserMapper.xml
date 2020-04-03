@@ -60,6 +60,11 @@
         select * from user where id = #{id}
     </select>
 
+<!--    User findUserbyUsername(String username);-->
+    <select id="findUserbyUsername" resultType="com.example.demo.domain.User" parameterType="java.lang.String">
+        select * from user where username = #{username}
+    </select>
+
 <!--    void saveUser(User user);-->
     <update id="saveUser" parameterType="com.example.demo.domain.User">
         update user

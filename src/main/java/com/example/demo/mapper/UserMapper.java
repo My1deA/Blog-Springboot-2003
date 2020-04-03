@@ -20,6 +20,8 @@ public interface UserMapper {
     //查询用户
     User findUserbyId(Integer id);
 
+    User findUserbyUsername(String username);
+
     //修改用户
     void saveUser(User user);
 }

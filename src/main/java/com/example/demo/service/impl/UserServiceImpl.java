@@ -13,10 +13,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Override
-    public User selectUserbyId(Integer id) {
-        return userMapper.selectUserbyId(id);
-    }
+
 
     @Override
     public void addUser(User user) {
@@ -34,7 +31,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findUserbyUsername(String username) {
+        return userMapper.findUserbyUsername(username);
+    }
+
+
+    @Override
     public void saveUser(User user) {
         userMapper.saveUser(user);
+    }
+
+
+    @Override
+    public User selectUserbyId(Integer id) {
+        return userMapper.selectUserbyId(id);
     }
 }
