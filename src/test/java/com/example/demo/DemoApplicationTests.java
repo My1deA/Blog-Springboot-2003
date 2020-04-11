@@ -2,12 +2,14 @@ package com.example.demo;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.example.demo.domain.User;
+import com.example.demo.mapper.ArticleMapper;
 import com.example.demo.result.Result;
 import com.example.demo.result.ResultUtil;
 import com.example.demo.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Timed;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -15,6 +17,36 @@ class DemoApplicationTests {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ArticleMapper articleMapper;
+
+    /**
+     * @name 文章测试
+     * @Time 2020年4月11日17:41:13
+     */
+    @Autowired
+    void TestAddArticle(){
+
+    }
+
+    @Autowired
+    void TestFindArticle(){
+
+    }
+    @Autowired
+    void TestSaveArticle(){
+
+    }
+    @Autowired
+    void TestDelArticle(){
+
+    }
+
+
+    /**
+     * @name 用户测试
+     * @Time 2020年4月4日17:41:13
+     */
     @Test
     void testAddUser(){
         User user=new User();
