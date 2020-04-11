@@ -26,5 +26,8 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.example.demo.domain
-  config-location: classpath:config/mybatis-config.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  #  config-location: classpath:config/mybatis-config.xml
+
 

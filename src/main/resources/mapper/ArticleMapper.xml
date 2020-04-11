@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.ArticleMapper">
+    <resultMap id="article" type="com.example.demo.domain.Article">
+        <id property="id" column="id"></id>
+        <result property="userId" column="user_id"></result>
+        <result property="title" column="title"></result>
+        <result property="type" column="type"></result>
+        <result property="time" column="time"></result>
+        <result property="resume" column="resume"></result>
+        <result property="content" column="context"></result>
+        <result property="state" column="state"></result>
+        <result property="like" column="like"></result>
+    </resultMap>
+
+    <!--    //增-->
+<!--    void addArticle(Article article); insert into article(xxx,xxx) values(xxx,xxx)-->
+    <insert id="addArticle" parameterType="com.example.demo.domain.Article">
+        insert into article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId!=null">
+                user_id,
+            </if>
+            <if test="title!=null">
+                title,
+            </if>
+            <if test="type!=null">
+                type,
+            </if>
+            <if test="time!=null">
+                time,
+            </if>
+            <if test="resume!=null">
+                resume,
+            </if>
+            <if test="content!=null">
+                content,
+            </if>
+            <if test="state!=null">
+                state,
+            </if>
+            <if test="like!=null">
+                like,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="userId!=null">
+                #{userId},
+            </if>
+            <if test="title!=null">
+                #{title},
+            </if>
+            <if test="type!=null">
+                #{type},
+            </if>
+            <if test="time!=null">
+                #{time},
+            </if>
+            <if test="resume!=null">
+                #{resume},
+            </if>
+            <if test="content!=null">
+                #{content},
+            </if>
+            <if test="state!=null">
+                #{state},
+            </if>
+            <if test="like!=null">
+                #{like},
+            </if>
+        </trim>
+    </insert>
+
+    <!--    //删-->
+<!--    void delArticle(Integer id);-->
+    <delete id="delArticle" parameterType="java.lang.Integer">
+        delete from article where id =#{id}
+    </delete>
+
+    <!--    //查-->
+<!--    Article findArticlebyId(Integer id);-->
+    <select id="findArticlebyId" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Article">
+        select * from article where id =#{id}
+    </select>
+
+    <!--    //改-->
+<!--    void saveArticle(Article article); update article set xxx=xxx,xxx=xxx where id= xxx;-->
+    <update id="saveArticle" parameterType="com.example.demo.">
+        update article
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userId!=null">
+                user_id= #{userId},
+            </if>
+            <if test="title!=null">
+                title= #{title},
+            </if>
+            <if test="type!=null">
+                type= #{type},
+            </if>
+            <if test="time!=null">
+                time= #{time},
+            </if>
+            <if test="resume!=null">
+                resume= #{resume},
+            </if>
+            <if test="content!=null">
+                content= #{content},
+            </if>
+            <if test="state!=null">
+                state= #{state},
+            </if>
+            <if test="like!=null">
+                like= #{like},
+            </if>
+        </trim>
+    </update>
+
+
+</mapper>
