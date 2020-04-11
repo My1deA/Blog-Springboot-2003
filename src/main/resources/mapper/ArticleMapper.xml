@@ -39,8 +39,8 @@
             <if test="state!=null">
                 state,
             </if>
-            <if test="like!=null">
-                like,
+            <if test="praise!=null">
+                praise,
             </if>
         </trim>
         <trim prefix="values(" suffix=")" suffixOverrides=",">
@@ -65,8 +65,8 @@
             <if test="state!=null">
                 #{state},
             </if>
-            <if test="like!=null">
-                #{like},
+            <if test="praise!=null">
+                #{praise},
             </if>
         </trim>
     </insert>
@@ -85,7 +85,7 @@
 
     <!--    //改-->
 <!--    void saveArticle(Article article); update article set xxx=xxx,xxx=xxx where id= xxx;-->
-    <update id="saveArticle" parameterType="com.example.demo.">
+    <update id="saveArticle" parameterType="com.example.demo.domain.Article">
         update article
         <trim prefix="set" suffixOverrides=",">
             <if test="userId!=null">
@@ -109,8 +109,8 @@
             <if test="state!=null">
                 state= #{state},
             </if>
-            <if test="like!=null">
-                like= #{like},
+            <if test="praise!=null">
+                praise= #{praise},
             </if>
         </trim>
     </update>

@@ -11,7 +11,7 @@ public class Article implements Serializable {
     private String resume;      //简介
     private String content;     //内容
     private String state;       //状态 release draft recycle
-    private Integer like;       //点赞数
+    private Integer praise;       //点赞数
 
     public Integer getId() {
         return id;
@@ -77,12 +77,12 @@ public class Article implements Serializable {
         this.state = state;
     }
 
-    public Integer getLike() {
-        return like;
+    public Integer getPraise() {
+        return praise;
     }
 
-    public void setLike(Integer like) {
-        this.like = like;
+    public void setPraise(Integer praise) {
+        this.praise = praise;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class Article implements Serializable {
                 ", resume='" + resume + '\'' +
                 ", content='" + content + '\'' +
                 ", state='" + state + '\'' +
-                ", like=" + like +
+                ", praise=" + praise +
                 '}';
     }
 }
