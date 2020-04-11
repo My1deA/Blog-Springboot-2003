@@ -3,11 +3,11 @@ package com.example.demo.domain;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private Integer id;
-    private String username;
-    private String password;
-    private String salt;
-    private String info;
+    private Integer id;         //用户id
+    private String username;    //账号
+    private String password;    //密码
+    private String salt;        //加密盐值
+    private String info;        //用户信息
 
     public Integer getId() {
         return id;
