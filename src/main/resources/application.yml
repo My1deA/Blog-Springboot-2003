@@ -23,6 +23,7 @@ spring:
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true,druid.stat.slowSqlMills=500
 
+#mybatis 基础配置
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: com.example.demo.domain
@@ -30,4 +31,10 @@ mybatis:
     map-underscore-to-camel-case: true
   #  config-location: classpath:config/mybatis-config.xml
 
+#pagehelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
 

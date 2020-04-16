@@ -82,6 +82,10 @@
     <select id="findArticlebyId" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Article">
         select * from article where id =#{id}
     </select>
+<!--    List<Article> findArticle(Integer pageNum,Integer pageSize);-->
+    <select id="findArticle" resultType="com.example.demo.domain.Article">
+        select * from article
+    </select>
 
     <!--    //改-->
 <!--    void saveArticle(Article article); update article set xxx=xxx,xxx=xxx where id= xxx;-->

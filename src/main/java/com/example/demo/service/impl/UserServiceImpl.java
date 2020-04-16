@@ -14,17 +14,17 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
 
-
+    //--增加
     @Override
     public void addUser(User user) {
          userMapper.addUser(user);
     }
-
+    //--删除
     @Override
     public void delUser(Integer id) {
         userMapper.delUser(id);
     }
-
+    //--查询
     @Override
     public User findUserbyId(Integer id) {
         return userMapper.findUserbyId(id);
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.findUserbyUsername(username);
     }
 
-
+    //--保存
     @Override
     public void saveUser(User user) {
         userMapper.saveUser(user);
