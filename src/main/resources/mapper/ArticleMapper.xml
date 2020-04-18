@@ -84,7 +84,7 @@
     </select>
 <!--    List<Article> findArticle(Integer pageNum,Integer pageSize);-->
     <select id="findArticle" resultType="com.example.demo.domain.Article">
-        select * from article
+        select * from article order by id desc
     </select>
 
     <!--    //改-->
