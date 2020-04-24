@@ -74,6 +74,7 @@
                 time = #{time},
             </if>
         </trim>
+        where id = #{id}
     </update>
 
 
