@@ -40,6 +40,7 @@ public class ArticleController {
                                      @PathVariable("pageSize") Integer pageSize) {
         List<Article> list = articleService.findArticle(pageNum,pageSize);
         return list;
+
     }
 
     //查询文章使用 PageInfo<Article> 返回数据
@@ -49,6 +50,7 @@ public class ArticleController {
         PageInfo<Article> pageInfo=articleService.findArticle2(pageNum,pageSize);
         return pageInfo;
     }
+
 
     
 }
