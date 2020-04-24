@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.ReplyMapper">
+    <resultMap id="replyMap" type="com.example.demo.domain.Reply">
+        <id property="id" column="id"></id>
+        <result property="replyId" column="reply_id"></result>
+        <result property="commentId" column="comment_id"></result>
+        <result property="fromId" column="from_id"></result>
+        <result property="toId" column="to_id"></result>
+        <result property="content" column="content"></result>
+        <result property="time" column="time"></result>
+    </resultMap>
+
+<!--    // 增-->
+<!--    void addReply(Reply reply);-->
+    <insert id="addReply" parameterType="com.example.demo.domain.Reply">
+        insert into reply
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="replyId!=null">
+                reply_id,
+            </if>
+            <if test="commentId!=null">
+                comment_id,
+            </if>
+            <if test="fromId!=null">
+                from_id,
+            </if>
+            <if test="toId!=null">
+                to_id,
+            </if>
+            <if test="content!=null">
+                content,
+            </if>
+            <if test="time!=null">
+                time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="replyId!=null">
+                #{replyId},
+            </if>
+            <if test="commentId!=null">
+                #{commentId},
+            </if>
+            <if test="fromId!=null">
+                #{fromId},
+            </if>
+            <if test="toId!=null">
+                #{toId},
+            </if>
+            <if test="content!=null">
+                #{content},
+            </if>
+            <if test="time!=null">
+                #{time},
+            </if>
+        </trim>
+    </insert>
+
+<!--    // 删-->
+<!--    void delReply(Integer id);-->
+    <delete id="delReply" parameterType="java.lang.Integer">
+        delete from reply wher id = #{id}
+    </delete>
+
+<!--    // 查-->
+<!--    Reply findReplyById(Integer id);-->
+    <select id="findReplyById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Reply">
+        select * from reply where id = #{id}
+    </select>
+<!--    // 改-->
+<!--    void saveReply(Reply reply);-->
+    <update id="saveReply" parameterType="com.example.demo.domain.Reply">
+        update reply
+        <trim prefix="set" suffixOverrides="," >
+            <if test="replyId!=null">
+                reply_id = #{replyId},
+            </if>
+            <if test="commentId!=null">
+                comment_id = #{commentId},
+            </if>
+            <if test="fromId!=null">
+                from_id = #{fromId},
+            </if>
+            <if test="toId!=null">
+                to_Id = #{toId},
+            </if>
+            <if test="content!=null">
+                content = #{content},
+            </if>
+            <if test="time!=null">
+                time = #{time},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+</mapper>
