@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.CommentMapper">
+    <resultMap id="commentMap" type="com.example.demo.domain.Comment">
+        <id property="id" column="id"></id>
+        <result property="articleId" column="article_id"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="articleId" column="article_id"></result>
+        <result property="time" column="time"></result>
+    </resultMap>
+
+
+<!--    //  增-->
+<!--    void addComment(Comment comment); insert into comment(xxx,xxx) values(xxx,xxx)-->
+    <insert id="addComment" parameterType="com.example.demo.domain.Comment">
+        insert into comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="articleId!=null">
+                articleId,
+            </if>
+            <if test="userId!=null">
+                userId,
+            </if>
+            <if test="content!=null">
+                content,
+            </if>
+            <if test="time!=null">
+                time,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="articleId!=null">
+                #{articleId},
+            </if>
+            <if test="userId!=null">
+                #{userId},
+            </if>
+            <if test="content!=null">
+                #{content},
+            </if>
+            <if test="time!=null">
+                #{time},
+            </if>
+        </trim>
+    </insert>
+
+<!--    //  删-->
+<!--    void delComment(Integer id);-->
+    <delete id="delComment" parameterType="java.lang.Integer">
+        delete from comment where id = #{id}
+    </delete>
+
+<!--    //  查-->
+<!--    Comment findeCommentById(Integer id);-->
+    <select id="findeCommentById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Comment">
+        select * from comment where id = #{id}
+    </select>
+
+<!--    //  改-->
+<!--    void saveComment(Comment comment); update comment set xx=xx,xx=xx where id = xx-->
+    <update id="" parameterType="com.example.demo.domain.Comment">
+        update comment
+        <trim prefix="set" suffixOverrides=",">
+            <if test="articleId!=null">
+                articleId = #{articleId},
+            </if>
+            <if test="userId!=null">
+                userId = #{userId},
+            </if>
+            <if test="content!=null">
+                content = #{content},
+            </if>
+            <if test="time!=null">
+                time = #{time},
+            </if>
+        </trim>
+    </update>
+
+
+
+</mapper>
