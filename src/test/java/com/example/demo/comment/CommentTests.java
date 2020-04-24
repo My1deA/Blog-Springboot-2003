@@ -14,7 +14,7 @@ public class CommentTests {
 
     // 增
     @Test
-    private void addCommentTest(){
+    void addCommentTest(){
         Comment comment=new Comment();
         comment.setArticleId(12);
         comment.setTime("2020-04-24 18:34:03");
@@ -24,14 +24,14 @@ public class CommentTests {
 
     // 查
     @Test
-    private void findCommentTest(){
+   void findCommentTest(){
         Comment comment=commentService.findeCommentById(1);
         System.out.println(comment);
     }
 
     // 改
     @Test
-    private void saveCommentTest(){
+    void saveCommentTest(){
         Comment comment=commentService.findeCommentById(1);
         comment.setContent("挺好的");
         commentService.saveComment(comment);
@@ -41,7 +41,7 @@ public class CommentTests {
 
     // 删
     @Test
-    private void delCommentTest(){
-
+    void delCommentTest(){
+        commentService.delComment(1);
     }
 }

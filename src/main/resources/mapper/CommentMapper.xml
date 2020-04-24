@@ -16,10 +16,10 @@
         insert into comment
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="articleId!=null">
-                articleId,
+                article_id,
             </if>
             <if test="userId!=null">
-                userId,
+                user_id,
             </if>
             <if test="content!=null">
                 content,
@@ -58,14 +58,14 @@
 
 <!--    //  改-->
 <!--    void saveComment(Comment comment); update comment set xx=xx,xx=xx where id = xx-->
-    <update id="" parameterType="com.example.demo.domain.Comment">
+    <update id="saveComment" parameterType="com.example.demo.domain.Comment">
         update comment
         <trim prefix="set" suffixOverrides=",">
             <if test="articleId!=null">
-                articleId = #{articleId},
+                article_id = #{articleId},
             </if>
             <if test="userId!=null">
-                userId = #{userId},
+                user_id = #{userId},
             </if>
             <if test="content!=null">
                 content = #{content},
