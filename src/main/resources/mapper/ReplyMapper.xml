@@ -3,7 +3,6 @@
 <mapper namespace="com.example.demo.mapper.ReplyMapper">
     <resultMap id="replyMap" type="com.example.demo.domain.Reply">
         <id property="id" column="id"></id>
-        <result property="replyId" column="reply_id"></result>
         <result property="commentId" column="comment_id"></result>
         <result property="fromId" column="from_id"></result>
         <result property="toId" column="to_id"></result>
@@ -16,9 +15,6 @@
     <insert id="addReply" parameterType="com.example.demo.domain.Reply">
         insert into reply
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="replyId!=null">
-                reply_id,
-            </if>
             <if test="commentId!=null">
                 comment_id,
             </if>
@@ -36,9 +32,6 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="replyId!=null">
-                #{replyId},
-            </if>
             <if test="commentId!=null">
                 #{commentId},
             </if>
@@ -73,9 +66,6 @@
     <update id="saveReply" parameterType="com.example.demo.domain.Reply">
         update reply
         <trim prefix="set" suffixOverrides="," >
-            <if test="replyId!=null">
-                reply_id = #{replyId},
-            </if>
             <if test="commentId!=null">
                 comment_id = #{commentId},
             </if>

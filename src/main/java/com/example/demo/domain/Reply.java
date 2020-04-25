@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class Reply implements Serializable {
     private Integer id;         //回复id
     private Integer commentId;  //回复 此评论id
-    private Integer replyId;    //回复 此回复id;
     private Integer fromId;     //回复者id
     private Integer toId;       //被回复者id
     private String content;     //回复内容
@@ -27,13 +26,6 @@ public class Reply implements Serializable {
         this.commentId = commentId;
     }
 
-    public Integer getReplyId() {
-        return replyId;
-    }
-
-    public void setReplyId(Integer replyId) {
-        this.replyId = replyId;
-    }
 
     public Integer getFromId() {
         return fromId;
@@ -72,7 +64,6 @@ public class Reply implements Serializable {
         return "Reply{" +
                 "id=" + id +
                 ", commentId=" + commentId +
-                ", replyId=" + replyId +
                 ", fromId=" + fromId +
                 ", toId=" + toId +
                 ", content='" + content + '\'' +

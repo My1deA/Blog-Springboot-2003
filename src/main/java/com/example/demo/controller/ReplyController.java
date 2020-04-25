@@ -1,9 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.service.ReplyService;
 import com.example.demo.domain.Reply;
 import com.example.demo.result.Result;
 import com.example.demo.result.ResultUtil;
-import com.example.demo.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
