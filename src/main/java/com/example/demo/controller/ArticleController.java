@@ -28,7 +28,7 @@ public class ArticleController {
     }
 
     //展示文章界面
-    @GetMapping(path = "/show/{id}")
+    @GetMapping(path = "/details/{id}")
     public Result findArticleById(@PathVariable("id") Integer id){
         Article article=articleService.findArticlebyId(id);
         return ResultUtil.success(article);
