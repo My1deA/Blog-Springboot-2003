@@ -17,14 +17,30 @@ public class CommentController {
 
     //添加评论
     @PostMapping("/add")
-    public void addComment(@RequestBody  Comment comment){
-        commentService.addComment(comment);
+    public Result addComment(@RequestBody  Comment comment){
+        System.out.println(comment);
+        //commentService.addComment(comment);
+        return ResultUtil.success(null);
     }
+
+
 
     //查询评论
     @GetMapping("/find/{id}")
     public Result findComment(@PathVariable("id") Integer id){
         Comment comment=commentService.findeCommentById(id);
         return ResultUtil.success(comment);
+    }
+
+
+    //使用 qs 添加评论
+    @PostMapping("/add2")
+    public Result addComment(@RequestParam("articleId") Integer articleId,
+                             @RequestParam("userId") Integer userId,
+                             @RequestParam("time") String time,
+                             @RequestParam("content") String content){
+        System.out.println(articleId+" "+userId+" "+time+" "+content);
+        //commentService.addComment(comment);
+        return ResultUtil.success(null);
     }
 }

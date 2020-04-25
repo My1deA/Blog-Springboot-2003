@@ -3,6 +3,7 @@ package com.example.demo.domain;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 
 public class Comment implements Serializable {
@@ -11,6 +12,7 @@ public class Comment implements Serializable {
     private Integer userId;     //用户id
     private String content;     //文章内容
     private String time;        //时间
+
 
     public Integer getId() {
         return id;
@@ -52,6 +54,9 @@ public class Comment implements Serializable {
         this.time = time;
     }
 
+
+
+
     @Override
     public String toString() {
         return "Comment{" +
@@ -62,4 +67,14 @@ public class Comment implements Serializable {
                 ", time='" + time + '\'' +
                 '}';
     }
+
+    /*private List<Reply> replyList; //测试list
+
+    public List<Reply> getReplyList() {
+        return replyList;
+    }
+
+    public void setReplyList(List<Reply> replyList) {
+        this.replyList = replyList;
+    }*/
 }

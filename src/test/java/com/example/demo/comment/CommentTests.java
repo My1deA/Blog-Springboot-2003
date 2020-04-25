@@ -1,10 +1,14 @@
 package com.example.demo.comment;
 
 import com.example.demo.domain.Comment;
+import com.example.demo.domain.Reply;
 import com.example.demo.service.CommentService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 public class CommentTests {
@@ -17,15 +21,21 @@ public class CommentTests {
     void addCommentTest(){
         Comment comment=new Comment();
         comment.setArticleId(12);
-        comment.setTime("2020-04-24 18:34:03");
-        comment.setContent("写得不错");
+        comment.setTime("2020-04-25 21:12:00");
+        comment.setContent("2.0 测试comment 新增List 是否影响增删查改");
         commentService.addComment(comment);
+
+        /*List<Reply> replyList=new ArrayList<Reply>();
+        Reply reply=new Reply();
+        reply.setToId(1);
+        replyList.add(reply);
+        comment.setReplyList(replyList);*/
     }
 
     // 查
     @Test
    void findCommentTest(){
-        Comment comment=commentService.findeCommentById(1);
+        Comment comment=commentService.findeCommentById(2);
         System.out.println(comment);
     }
 
