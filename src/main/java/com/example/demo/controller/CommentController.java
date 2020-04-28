@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path="/comment")
 public class CommentController {
@@ -26,10 +28,10 @@ public class CommentController {
 
 
     //查询评论
-    @GetMapping("/find/{id}")
-    public Result findComment(@PathVariable("id") Integer id){
-        Comment comment=commentService.findeCommentById(id);
-        return ResultUtil.success(comment);
+    @GetMapping("/list/{pageNum}/{pageSize}")
+    public List<Comment> findComment(@PathVariable("pageNum") Integer pageNum,
+                                     @PathVariable("pageSize") Integer pageSize){
+        return null;
     }
 
 
@@ -43,4 +45,13 @@ public class CommentController {
         //commentService.addComment(comment);
         return ResultUtil.success(null);
     }
+
+
+    //id查询评论
+    @GetMapping("/find/{id}")
+    public Result findCommentById(@PathVariable("id") Integer id){
+        Comment comment=commentService.findeCommentById(id);
+        return ResultUtil.success(comment);
+    }
+
 }

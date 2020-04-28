@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 public class ReplyTests {
 
@@ -27,6 +29,18 @@ public class ReplyTests {
     void findReplyTest(){
         Reply reply=replyService.findReplyById(1);
         System.out.println(reply);
+    }
+
+    @Test
+    void findPartReplyTest(){
+        List<Reply> replyList=replyService.findPartReplyByCommentId(1);
+        System.out.println(replyList);
+    }
+
+    @Test
+    void findAllReplyTest(){
+        List<Reply> replyList=replyService.findAllReplyByCommentId(1);
+        System.out.println(replyList);
     }
 
     // 改

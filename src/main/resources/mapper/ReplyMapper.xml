@@ -61,6 +61,17 @@
     <select id="findReplyById" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Reply">
         select * from reply where id = #{id}
     </select>
+
+<!--    List<Reply> findPartReplyByCommentId(Integer commentId); // 查询评论相关的部分回复-->
+    <select id="findPartReplyByCommentId" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Reply">
+        select * from reply where comment_id = #{commentId} limit 3
+    </select>
+<!--    List<Reply> findAllReplyByCommentId(Integer commentId); // 查询评论相关的所有回复-->
+    <select id="findAllReplyByCommentId" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Reply">
+        select * from reply where comment_id = #{commentId}
+    </select>
+
+
 <!--    // 改-->
 <!--    void saveReply(Reply reply);-->
     <update id="saveReply" parameterType="com.example.demo.domain.Reply">

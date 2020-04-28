@@ -4,19 +4,22 @@ import com.example.demo.domain.Comment;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Mapper
 @Repository
 public interface CommentMapper {
-//  增
+    //  增
     void addComment(Comment comment);
 
-//  删
+    //  删
     void delComment(Integer id);
 
-//  查
+    //  查
     Comment findeCommentById(Integer id);
-
-//  改
+    // 查询评论
+    List<Comment> findCommentByArticleId(Integer ArticleId);
+    //  改
     void saveComment(Comment comment);
 
 

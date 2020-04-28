@@ -12,7 +12,7 @@ public class Comment implements Serializable {
     private Integer userId;     //用户id
     private String content;     //文章内容
     private String time;        //时间
-
+    private List<Reply> replyList; //回复列表
 
     public Integer getId() {
         return id;
@@ -54,8 +54,13 @@ public class Comment implements Serializable {
         this.time = time;
     }
 
+    public List<Reply> getReplyList() {
+        return replyList;
+    }
 
-
+    public void setReplyList(List<Reply> replyList) {
+        this.replyList = replyList;
+    }
 
     @Override
     public String toString() {
@@ -65,16 +70,7 @@ public class Comment implements Serializable {
                 ", userId=" + userId +
                 ", content='" + content + '\'' +
                 ", time='" + time + '\'' +
+                ", replyList=" + replyList +
                 '}';
     }
-
-    /*private List<Reply> replyList; //测试list
-
-    public List<Reply> getReplyList() {
-        return replyList;
-    }
-
-    public void setReplyList(List<Reply> replyList) {
-        this.replyList = replyList;
-    }*/
 }

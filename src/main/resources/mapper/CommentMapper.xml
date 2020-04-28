@@ -56,6 +56,11 @@
         select * from comment where id = #{id}
     </select>
 
+<!--    // 查询评论 List<Comment> findCommentByArticleId(Integer ArticleId);-->
+    <select id="findCommentByArticleId" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Comment">
+        select * from comment where article_id = #{article_id}
+    </select>
+
 <!--    //  改-->
 <!--    void saveComment(Comment comment); update comment set xx=xx,xx=xx where id = xx-->
     <update id="saveComment" parameterType="com.example.demo.domain.Comment">
