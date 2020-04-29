@@ -18,7 +18,7 @@ public interface CommentMapper {
     //  查
     Comment findeCommentById(Integer id);
     // 查询评论
-    List<Comment> findCommentByArticleId(Integer ArticleId);
+    List<Comment> findCommentByArticleId(Integer articleId);
     //  改
     void saveComment(Comment comment);
 

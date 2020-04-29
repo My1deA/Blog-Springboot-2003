@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 public class CommentTests {
 
@@ -30,10 +32,16 @@ public class CommentTests {
 
     // 查
     @Test
-   void findCommentTest(){
-        Comment comment=commentService.findeCommentById(2);
-        System.out.println(comment);
+    void findCommentTest(){
+        /*Comment comment=commentService.findeCommentById(2);
+        System.out.println(comment);*/
+
+        //查询评论
+        List<Comment> commentList=commentService.findCommentByArticleId(1,3,12);
+        System.out.println(commentList);
     }
+
+
 
     // 改
     @Test

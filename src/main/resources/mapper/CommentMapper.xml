@@ -58,7 +58,7 @@
 
 <!--    // 查询评论 List<Comment> findCommentByArticleId(Integer ArticleId);-->
     <select id="findCommentByArticleId" parameterType="java.lang.Integer" resultType="com.example.demo.domain.Comment">
-        select * from comment where article_id = #{article_id}
+        select * from comment where article_id = #{articleId}
     </select>
 
 <!--    //  改-->

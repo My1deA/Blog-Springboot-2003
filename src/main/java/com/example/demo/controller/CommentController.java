@@ -28,10 +28,13 @@ public class CommentController {
 
 
     //查询评论
-    @GetMapping("/list/{pageNum}/{pageSize}")
-    public List<Comment> findComment(@PathVariable("pageNum") Integer pageNum,
+    @GetMapping("/list/{articleId}/{pageNum}/{pageSize}")
+    public List<Comment> findComment(@PathVariable("articleId") Integer articleId,
+                                     @PathVariable("pageNum") Integer pageNum,
                                      @PathVariable("pageSize") Integer pageSize){
-        return null;
+        List<Comment> commentList=commentService.findCommentByArticleId(pageNum,pageSize,articleId);
+
+        return commentList;
     }
 
 

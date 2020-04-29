@@ -15,7 +15,7 @@ public interface CommentService {
     //  查
     Comment findeCommentById(Integer id);
     // 查询评论
-    List<Comment> findCommentByArticleId(Integer pageNum,Integer pageSize,Integer ArticleId);
+    List<Comment> findCommentByArticleId(Integer pageNum,Integer pageSize,Integer articleId);
 
     //  改
     void saveComment(Comment comment);
