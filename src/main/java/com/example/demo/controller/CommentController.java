@@ -25,16 +25,22 @@ public class CommentController {
         return ResultUtil.success(null);
     }
 
-
+    //id查询评论
+    @GetMapping("/find/{id}")
+    public Result findCommentById(@PathVariable("id") Integer id){
+        Comment comment=commentService.findeCommentById(id);
+        return ResultUtil.success(comment);
+    }
 
     //查询评论
-    @GetMapping("/list/{articleId}/{pageNum}/{pageSize}")
-    public List<Comment> findComment(@PathVariable("articleId") Integer articleId,
+    @GetMapping("/{articleId}/{pageNum}/{pageSize}")
+    public Result findComment(@PathVariable("articleId") Integer articleId,
                                      @PathVariable("pageNum") Integer pageNum,
                                      @PathVariable("pageSize") Integer pageSize){
         List<Comment> commentList=commentService.findCommentByArticleId(pageNum,pageSize,articleId);
 
-        return commentList;
+
+        return ResultUtil.success(commentList);
     }
 
 
@@ -50,11 +56,6 @@ public class CommentController {
     }
 
 
-    //id查询评论
-    @GetMapping("/find/{id}")
-    public Result findCommentById(@PathVariable("id") Integer id){
-        Comment comment=commentService.findeCommentById(id);
-        return ResultUtil.success(comment);
-    }
+
 
 }

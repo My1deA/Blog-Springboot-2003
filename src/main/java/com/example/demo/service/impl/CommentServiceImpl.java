@@ -37,7 +37,12 @@ public class CommentServiceImpl implements CommentService {
     // 查
     @Override
     public Comment findeCommentById(Integer id) {
-        return commentMapper.findeCommentById(id);
+        Comment comment=commentMapper.findeCommentById(id);
+        List<Reply> replyList=replyService.findAllReplyByCommentId(comment.getId());
+        if(replyList!=null){
+            comment.setReplyList(replyList);
+        }
+        return  comment;
     }
 
     // 查询评论
