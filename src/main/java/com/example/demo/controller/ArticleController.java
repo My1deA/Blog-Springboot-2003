@@ -27,6 +27,15 @@ public class ArticleController {
         return ResultUtil.success(null);
     }
 
+    //添加文章
+    @PostMapping(path = "/save")
+    public Result saveArticle(@RequestBody Article article){
+        /*System.out.println(article);
+        System.out.println("123");*/
+        articleService.saveArticle(article);
+        return ResultUtil.success(null);
+    }
+
     //展示文章界面
     @GetMapping(path = "/details/{id}")
     public Result findArticleById(@PathVariable("id") Integer id){
