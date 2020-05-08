@@ -80,7 +80,7 @@
             <version>1.2.9</version>
         </dependency>
 
-        <!-- redis依赖commons-pool 这个依赖一定要添加 -->
+        <!-- redis依赖commons-pool lettuce -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
