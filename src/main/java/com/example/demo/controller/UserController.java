@@ -7,6 +7,8 @@ import com.example.demo.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
@@ -59,6 +61,9 @@ public class UserController {
         return ResultUtil.success(user);
     }
 
+    //注解验角色和权限
+    /*@RequiresRoles("admin")
+    @RequiresPermissions("add")*/
     @PostMapping("/logout")
     public Result logout(){
         Subject subject = SecurityUtils.getSubject();
