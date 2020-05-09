@@ -14,6 +14,9 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 
 @RestController
 @RequestMapping(path = "/user")
@@ -74,9 +77,40 @@ public class UserController {
 
 
 
+    //用户头像图片上传 / 用户多图片上传 ElementUi 使用文件上传 即使是一个列表 他是一个个上传
+    @PostMapping("/pics/{id}")
+    public Result loadPics(@RequestParam("file") MultipartFile file,
+                           @PathVariable("id") Integer id){
+
+        String fileName=file.getOriginalFilename();
+        String filePath="F:\\Picture\\upload1\\"+id+"\\";
+        File temp=new File(filePath,fileName);
+
+        System.out.println(temp.getAbsolutePath());
+        if(!temp.getParentFile().exists()){
+            temp.mkdirs();
+        }
+
+        //插入图片数据库信息
+
+        try{
+            file.transferTo(temp);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+//        "http://localhost:8080/images/"+id+"/"+fileName;
+
+        return ResultUtil.success(null);
+
+    }
 
 
-
+    //用户修改个人信息
+    @PostMapping("/saveUser")
+    public Result saveUser(User user){
+        userService.saveUser(user);
+        return ResultUtil.success(null);
+    }
 
 
 
